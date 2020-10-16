@@ -7,9 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "getTasks",
+            query = "select m from TaskDTO AS m order by m.id desc"
+            )
+})
 @Table(name = "tasks")
 public class TaskDTO {
     @Id
